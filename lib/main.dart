@@ -1,64 +1,49 @@
+import 'package:dice/bloc/dice.dart';
+import 'package:dice/views/dice_page.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.blueAccent,
-        appBar: AppBar(
-          title: const Text('Dice'),
+    BlocProvider(
+      create: (context) => DiceBloc(),
+      child: MaterialApp(
+        home: Scaffold(
           backgroundColor: Colors.blueAccent,
+          appBar: AppBar(
+            title: const Text('Dice'),
+            backgroundColor: Colors.blueAccent,
+          ),
+          body: const DicePage(),
         ),
-        body: const DicePage(),
       ),
     ),
   );
 }
 
-class DicePage extends StatefulWidget {
-  const DicePage({Key? key}) : super(key: key);
 
-  @override
-  State<DicePage> createState() => _DicePageState();
-}
 
-class _DicePageState extends State<DicePage> {
-  int leftDiceNumber = 1;
-  int rightDiceNumber = 1;
+//   @override
+//   State<DicePage> createState() => _DicePageState();
+// }
 
-  void changeDiceFace() {
-    setState(
-      () {
-        leftDiceNumber = Random().nextInt(6) + 1;
-        rightDiceNumber = Random().nextInt(6) + 1;
-      },
-    );
-  }
+// class _DicePageState extends State<DicePage> {
+  // int leftDiceNumber = 1;
+  // int rightDiceNumber = 1;
 
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: [
-          Expanded(
-            child: TextButton(
-              onPressed: () {
-                changeDiceFace();
-              },
-              child: Image.asset('images/dice$leftDiceNumber.png'),
-            ),
-          ),
-          Expanded(
-            child: TextButton(
-              onPressed: () {
-                changeDiceFace();
-              },
-              child: Image.asset('images/dice$rightDiceNumber.png'),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+  // void changeDiceFace() {
+  //   setState(
+  //     () {
+  //       leftDiceNumber = Random().nextInt(6) + 1;
+  //       rightDiceNumber = Random().nextInt(6) + 1;
+  //     },
+  //   );
+  // }
+
+ 
+
+
+
+
+
+
