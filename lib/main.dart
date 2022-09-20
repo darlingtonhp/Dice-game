@@ -8,10 +8,11 @@ void main() {
     BlocProvider(
       create: (context) => DiceBloc(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
           backgroundColor: Colors.blueAccent,
           appBar: AppBar(
-            title: const Text('Dice'),
+            title: const Center(child: Text('Dice')),
             backgroundColor: Colors.blueAccent,
           ),
           body: const DicePage(),
